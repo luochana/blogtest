@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="keywords" content="">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="icon" href="assets/images/favicon.png" type="image/png">
+  <title></title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <script type="text/javascript" charset="utf-8" src="ueditor/ueditor.config.js"></script>
+    <script type="text/javascript" charset="utf-8" src="ueditor/ueditor.all.min.js"> </script>
+    <!--建议手动加在语言，避免在ie下有时因为加载语言失败导致编辑器加载失败-->
+    <!--这里加载的语言文件会覆盖你在配置项目里添加的语言类型，比如你在配置项目里配置的是英文，这里加载的中文，那最后就是中文-->
+    <script type="text/javascript" charset="utf-8" src="lang/zh-cn/zh-cn.js"></script>
+
+    <style type="text/css">
+        div{
+            width:100%;
+        }
+    </style>
+
+    <!-- BEGIN PAGE LEVEL STYLES -->
+    <link href="assets/plugins/jquery-ui/jquery-ui.min.css" rel="stylesheet"/>
+    <link href="assets/plugins/full-calendar/fullcalendar.css" rel="stylesheet" type="text/css" />
+    <!-- END PAGE LEVEL STYLES -->
+    
+    <link href="assets/css/icons.css" rel="stylesheet">
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="assets/css/responsive.css" rel="stylesheet">
+    
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+          <script src="js/html5shiv.min.js"></script>
+          <script src="js/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body class="sticky-header">
+
+    <!--Start left side Menu-->
+    <div class="left-side sticky-left-side">
+
+        <!--logo-->
+        <div class="logo">
+            <a href="index.html"><img src="assets/images/logo.png" alt=""></a>
+        </div>
+
+        <div class="logo-icon text-center">
+            <a href="index.html"><img src="assets/images/logo-icon.png" alt=""></a>
+        </div>
+        <!--logo-->
+
+        <div class="left-side-inner">
+            <!--Sidebar nav-->
+            <ul class="nav nav-pills nav-stacked custom-nav">
+                <li class="menu-list nav-active"><a href="index.html"><i class="icon-home"></i> <span>用户管理</span></a>
+                    <ul class="sub-menu-list">
+                        <li  class="active"><a href="index.html">修改密码</a></li>
+                    </ul>
+                </li>
+
+                <li class="menu-list"><a href="#"><i class="icon-layers"></i> <span>文章</span></a>
+                    <ul class="sub-menu-list">
+                        <li><a href="ui-buttons.html">写文章</a></li>
+                        <li><a href="ui-panels.html">修改文章</a></li>
+                        <li><a href="ui-panels.html">查看文章</a></li>
+                    </ul>
+                </li>
+
+                <li class="menu-list"><a href="#"><i class="icon-grid"></i> <span>数据统计</span></a>
+                    <ul class="sub-menu-list">
+                        <li><a href="#">网站流量</a></li>
+                        <li><a href="#">总访问量</a></li>
+                    </ul>
+                </li>
+
+                <li class="menu-list"><a href="#"><i class="icon-lock"></i> <span>退出登录</span></a>
+                    <ul class="sub-menu-list">
+                        <li><a href="#">确认退出</a></li>
+                        </li>
+
+                    </ul>
+                    <!--End sidebar nav-->
+
+        </div>
+    </div>
+    <div id="feedback"></div>
+    <!--End left side menu-->
+    <form  method="post" id="article">
+    <div style="margin-top: 20px;margin-left: 240px">
+        <p style="margin-left: 20px;color: snow">标题</p>
+        <input type="text" id="ArticleHeader" name="ArticleHeader" required  onblur="if (this.value == '') {this.value = '请输入标题...';}">
+    </div>
+    
+    <!-- main content start-->
+    <div style="margin-left: 240px;margin-top: 20px">
+            <script id="editor" name="editor"  type="text/plain" style="width:1024px;height:500px;"></script>
+            <div>
+
+                    <button type="submit" id="Submit" style="margin-left:975px">提交
+                    </button>
+             </div>
+     </form>
+    </div>
+      <!--End main content -->
+    
+
+
+    <!--Begin core plugin -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/plugins/moment/moment.js"></script>
+    <script  src="assets/js/jquery.slimscroll.js "></script>
+    <script src="assets/js/jquery.nicescroll.js"></script>
+    <script src="assets/js/functions.js"></script>
+    <!-- End core plugin -->
+
+    <!-- BEGIN PAGE LEVEL SCRIPTS -->
+	<script type="text/javascript" src="assets/plugins/jquery-ui/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="assets/plugins/moment/moment.js"></script>
+    <script type="text/javascript" src="assets/plugins/full-calendar/fullcalendar.js"></script>
+    <script type="text/javascript" src="assets/pages/calendar-custom.js"></script>
+        <script type="text/javascript" src="webjars/jquery/3.1.1/jquery.min.js"></script>
+        <!-- END PAGE LEVEL SCRIPTS -->
+        <script type="text/javascript">
+
+            //实例化编辑器
+            //建议使用工厂方法getEditor创建和引用编辑器实例，如果在某个闭包下引用该编辑器，直接调用UE.getEditor('editor')就能拿到相关的实例
+            var ue = UE.getEditor('editor');
+
+        </script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $("#article").submit(function (event) {
+                    event.preventDefault();
+                    article_ajax_submit();
+                });
+            });
+           function article_ajax_submit(){
+               // var article=new Array();
+               // article[0]=$("#ArticleHeader");
+               // article[1]=$("#editor");
+               var a=ue.getContentTxt();
+               var content={ }
+               content["header"]=$("#ArticleHeader").val();
+               content["article"]=a;
+               $.ajax({
+                   type:"POST",
+                   contentType:"application/json",
+                   url:"/edit",
+                 //  data:JSON.stringify(article),
+                   data:JSON.stringify(content),
+                   dataType:'text',
+                   cache:false,
+                   timeout:600000,
+                   success:function (data) {
+                       alert("文章写入成功!");
+                   }
+               })
+           }
+        </script>
+    <!-- END PAGE LEVEL SCRIPTS -->
+
+</body>
+
+</html>

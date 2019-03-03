@@ -1,0 +1,175 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>陈泺的博客</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
+		<script src="js/jquery.min.js"></script>
+		<script src="js/jquery.dropotron.min.js"></script>
+		<script src="js/skel.min.js"></script>
+		<script src="js/skel-layers.min.js"></script>
+		<script src="js/init.js"></script>
+		<noscript>
+			<link rel="stylesheet" href="css/skel.css" />
+			<link rel="stylesheet" href="css/style.css" />
+			<link rel="stylesheet" href="css/style-wide.css" />
+		</noscript>
+        <script type="text/javascript" src="webjars/jquery/3.1.1/jquery.min.js"></script>
+		<script type="text/javascript">
+			window.onload=getContent();
+            function getContent(){
+                $.ajax({
+                    url:"pages/getArticle",
+                    dataType:'JSON',
+                    cache:false,
+                    timeout:600000,
+                    success:function (data) {
+                      var a=JSON.stringify(data,null,4);
+						//var b=JSON.parse(data);
+                        var b=JSON.parse(a);
+                        var ArContent=b[0].content.substring(0,80)+"......";
+                        $('#header1').html(b[0].header);
+                        $('#content1').html(ArContent);
+                        ArContent=b[1].content.substring(0,80)+"......";
+                        $('#header2').html(b[1].header);
+                        $('#content2').html(ArContent);
+                        ArContent=b[2].content.substring(0,80)+"......";
+                        $('#header3').html(b[2].header);
+                        $('#content3').html(ArContent);
+                        ArContent=b[3].content.substring(0,80)+"......";
+                        $('#header4').html(b[3].header);
+                        $('#content4').html(ArContent);
+                        ArContent=b[4].content.substring(0,80)+"......";
+                        $('#header5').html(b[4].header);
+                        $('#content5').html(ArContent);
+                        ArContent=b[5].content.substring(0,80)+"......";
+                        $('#header6').html(b[5].header);
+                        $('#content6').html(ArContent);
+                       // alert(b[1].id);
+                    }
+                })
+            }
+        </script>
+		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
+	</head>
+	<body>
+
+		<!-- Wrapper -->
+			<div class="wrapper style1">
+
+				<!-- Header -->
+					<div id="header" class="skel-panels-fixed">
+						<div id="logo">
+							<h1><a href="index.html">小泺的博客</a></h1>
+							<span class="tag">by LuoChan</span>
+						</div>
+						<nav id="nav">
+							<ul>
+								<li class="active"><a href="index.html">主页</a></li>
+								<li><a href="/pages/SelfIntrodution">关于我</a></li>
+								<li><a href="/pages/shares">技术生活分享</a></li>
+								<li><a href="/pages/LeftMessage">留言</a></li>
+							</ul>
+						</nav>
+					</div>
+
+				<!-- Banner -->
+					<div id="banner" class="container">
+						<section>
+							<p>这是一个<strong>初学者</strong>搭建的个人网站，主要用于<strong>扯淡</strong>。</p>
+						</section>
+					</div>
+
+				<!-- Extra -->
+					<div id="extra">
+						<div class="container">
+							<div class="row no-collapse-1">
+								<section class="4u"> <a href="#" class="image featured"><img src="images/pic01.jpg" alt=""></a>
+									<div class="box">
+										<p><strong id="header1"></strong></p>
+										<p id="content1">更多精彩内容，敬请期待</p>
+										<a href="/pages/ReadMore?id=1" class="button">Read More</a> </div>
+								</section>
+								<section class="4u"> <a href="#" class="image featured"><img src="images/pic02.jpg" alt=""></a>
+									<div class="box">
+                                        <p><strong id="header2"></strong></p>
+										<p id="content2">更多精彩内容，敬请期待</p>
+										<a href="#" class="button">Read More</a> </div>
+								</section>
+								<section class="4u"> <a href="#" class="image featured"><img src="images/pic03.jpg" alt=""></a>
+									<div class="box">
+                                        <p><strong id="header3"></strong></p>
+										<p id="content3">更多精彩内容，敬请期待</p>
+										<a href="#" class="button">Read More</a> </div>
+								</section>
+							</div>
+							<div class="row no-collapse-1">
+								<section class="4u"> <a href="#" class="image featured"><img src="images/pic01.jpg" alt=""></a>
+									<div class="box">
+                                        <p><strong id="header4"></strong></p>
+										<p id="content4">更多精彩内容，敬请期待</p>
+										<a href="#" class="button">Read More</a> </div>
+								</section>
+								<section class="4u"> <a href="#" class="image featured"><img src="images/pic02.jpg" alt=""></a>
+									<div class="box">
+                                        <p><strong id="header5"></strong></p>
+										<p id="content5">更多精彩内容，敬请期待.</p>
+										<a href="#" class="button">Read More</a> </div>
+								</section>
+								<section class="4u"> <a href="#" class="image featured"><img src="images/pic03.jpg" alt=""></a>
+									<div class="box">
+                                        <p><strong id="header6"></strong></p>
+										<p id="content6">更多精彩内容，敬请期待</p>
+										<a href="#" class="button">Read More</a> </div>
+								</section>
+							</div>
+						</div>
+					</div>
+
+				<!-- Main -->
+	</div>
+
+	<!-- Footer -->
+		<div id="footer" class="wrapper style2">
+			<div class="container">
+				<section>
+					<header class="major">
+						<h2>Mauris vulputate dolor</h2>
+						<span class="byline">Integer sit amet pede vel arcu aliquet pretium</span>
+					</header>
+					<form method="post" action="#">
+						<div class="row half">
+							<div class="12u">
+								<input class="text" type="text" name="name" id="name" placeholder="Name" />
+							</div>
+						</div>
+						<div class="row half">
+							<div class="12u">
+								<input class="text" type="text" name="email" id="email" placeholder="Email" />
+							</div>
+						</div>
+						<div class="row half">
+							<div class="12u">
+								<textarea name="message" id="message" placeholder="Message"></textarea>
+							</div>
+						</div>
+						<div class="row half">
+							<div class="12u">
+								<ul class="actions">
+									<li>
+										<input type="submit" value="Send Message" class="button alt" />
+									</li>
+								</ul>
+							</div>
+						</div>
+					</form>
+				</section>
+			</div>
+		</div>
+
+
+	
+</body>
+</html>
